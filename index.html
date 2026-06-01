@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WisdomCanvas | Premium Ambient Quotes & Visual Creator</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover and curate over 600 authentic quotes on Motivation, Wisdom, Love, Peace, Creativity, and Humor. Listen with TTS, download quotes as beautiful custom images, and experience full-screen ambient slideshows.">
+  <meta name="keywords" content="quotes generator, quotes visualizer, text to speech quotes, motivation quotes, Stoicism quotes, Rumi quotes, quote card creator, ambient screensaver">
+  <meta name="author" content="WisdomCanvas">
+  
+  <!-- Google Fonts: Playfair Display (Serif) & Outfit (Sans-Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for Beautiful UI Graphics -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Ambient Moving Backdrops -->
+  <div class="ambient-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- HEADER BAR -->
+    <header class="app-header">
+      <div class="brand-logo" id="logo-trigger">
+        <div class="logo-mark"><i class="fa-solid fa-feather-pointed"></i></div>
+        <h1>Wisdom<span>Canvas</span></h1>
+      </div>
+      
+      <div class="header-search">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="quote-search" placeholder="Search quotes or authors..." aria-label="Search quotes">
+      </div>
+      
+      <div class="header-actions">
+        <button class="icon-btn" id="screensaver-trigger" title="Ambient Slideshow (Screensaver)" aria-label="Start slideshow">
+          <i class="fa-solid fa-expand"></i>
+        </button>
+        <button class="icon-btn" id="bookmark-toggle-btn" title="View Bookmarks" aria-label="Open bookmarks">
+          <i class="fa-regular fa-heart"></i>
+          <span class="bookmark-badge" id="bookmark-badge">0</span>
+        </button>
+        <button class="icon-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- TOPIC TABS & FILTER PILLS -->
+    <section class="topic-navigation">
+      <div class="topic-scroll-container">
+        <button class="topic-pill active" data-topic="all">
+          <i class="fa-solid fa-compass"></i> All Moods
+        </button>
+        <button class="topic-pill" data-topic="motivation">
+          <i class="fa-solid fa-fire"></i> Motivation
+        </button>
+        <button class="topic-pill" data-topic="wisdom">
+          <i class="fa-solid fa-brain"></i> Wisdom
+        </button>
+        <button class="topic-pill" data-topic="love">
+          <i class="fa-solid fa-heart"></i> Love
+        </button>
+        <button class="topic-pill" data-topic="peace">
+          <i class="fa-solid fa-spa"></i> Peace
+        </button>
+        <button class="topic-pill" data-topic="creativity">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Creativity
+        </button>
+        <button class="topic-pill" data-topic="humor">
+          <i class="fa-solid fa-face-grin-wink"></i> Humor
+        </button>
+      </div>
+    </section>
+
+    <!-- MAIN CARD ARENA -->
+    <main class="main-content">
+      <!-- Info Header showing total matched / current topic -->
+      <div class="topic-meta-header">
+        <h2 id="current-topic-label">Wisdom Canvas</h2>
+        <span id="quotes-count-label">600 quotes available</span>
+      </div>
+
+      <div class="card-outer-wrapper">
+        <!-- Interactive Glassmorphic Quote Card -->
+        <article class="quote-card" id="quote-display-card">
+          <div class="card-quote-mark left-mark"><i class="fa-solid fa-quote-left"></i></div>
+          
+          <div class="quote-body-container">
+            <p class="quote-text" id="quote-text">The only way to do great work is to love what you do.</p>
+            <p class="quote-author" id="quote-author">Steve Jobs</p>
+          </div>
+
+          <div class="card-quote-mark right-mark"><i class="fa-solid fa-quote-right"></i></div>
+          
+
+
+          <!-- Bottom Card Actions -->
+          <div class="card-footer">
+            <div class="card-quick-actions">
+              <button class="card-action-btn" id="fav-btn" title="Add to Favorites" aria-label="Favorite quote">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <button class="card-action-btn" id="canvas-export-btn" title="Export as Beautiful Image" aria-label="Export quote card">
+                <i class="fa-solid fa-image"></i>
+              </button>
+            </div>
+            
+            <div class="card-share-actions">
+              <button class="share-btn" id="copy-btn" title="Copy Text" aria-label="Copy quote">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+              <button class="share-btn" id="twitter-btn" title="Share on Twitter/X" aria-label="Share on X">
+                <i class="fa-brands fa-twitter"></i>
+              </button>
+              <button class="share-btn" id="whatsapp-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Main Action Controller (Next Quote) -->
+      <div class="navigation-controls">
+        <button class="nav-arrow-btn" id="prev-quote-btn" title="Previous Quote" aria-label="Previous quote">
+          <i class="fa-solid fa-arrow-left-long"></i>
+        </button>
+        <button class="next-quote-cta" id="next-quote-btn">
+          <span>Inspire Me</span>
+          <i class="fa-solid fa-shuffle shuffle-icon"></i>
+        </button>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer-info">
+      <p>© 2026 WisdomCanvas. Premium digital editorial designed for mindfulness and self-improvement.</p>
+    </footer>
+
+  </div>
+
+  <!-- FAVORITES/BOOKMARKS DRAWER (SLIDE-OUT) -->
+  <aside class="bookmarks-drawer" id="bookmarks-drawer">
+    <div class="drawer-header">
+      <h3>Saved Bookmarks</h3>
+      <button class="icon-btn close-drawer-btn" id="bookmarks-close" aria-label="Close bookmarks">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="drawer-body" id="bookmarks-list-container">
+      <!-- Dynamically filled with bookmark items -->
+      <div class="empty-drawer-state" id="empty-bookmarks-msg">
+        <i class="fa-regular fa-folder-open"></i>
+        <p>No bookmarked quotes yet.</p>
+        <span>Click the heart icon on any quote card to save it here for offline reading.</span>
+      </div>
+    </div>
+    
+    <div class="drawer-footer" id="drawer-footer-actions">
+      <button class="danger-btn full-width-btn" id="clear-all-bookmarks">
+        <i class="fa-solid fa-trash-can"></i> Clear All Bookmarks
+      </button>
+    </div>
+  </aside>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- CANVAS EXPORTER MODAL -->
+  <div class="modal-overlay" id="canvas-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Customize Quote Canvas</h3>
+        <button class="icon-btn" id="canvas-modal-close" aria-label="Close canvas customizer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        
+        <!-- Live Render Preview -->
+        <div class="canvas-preview-container">
+          <canvas id="export-canvas" width="800" height="800"></canvas>
+          <div class="canvas-loading-spinner" id="canvas-loading">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+          </div>
+        </div>
+        
+        <!-- Customization Settings -->
+        <div class="canvas-settings">
+          <div class="settings-group">
+            <label class="settings-label">Select Canvas Backdrop</label>
+            <div class="palette-grid">
+              <button class="palette-pill active" data-bg="aurora" style="background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);">Aurora Dark</button>
+              <button class="palette-pill" data-bg="sunset" style="background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);">Sunset Glow</button>
+              <button class="palette-pill" data-bg="emerald" style="background: linear-gradient(135deg, #064e3b, #022c22, #0d5c3a);">Emerald Forest</button>
+              <button class="palette-pill" data-bg="peace" style="background: linear-gradient(135deg, #134e5e, #71b280);">Peaceful Tea</button>
+              <button class="palette-pill" data-bg="minimal-dark" style="background: #111111; color: #ffffff; border: 1px solid #333;">Minimal Dark</button>
+              <button class="palette-pill" data-bg="minimal-light" style="background: #ffffff; color: #000000; border: 1px solid #ddd;">Minimal Light</button>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <label class="settings-label">Select Typography Style</label>
+            <div class="font-selection-row">
+              <button class="font-select-btn active" data-font="serif">
+                <span class="font-preview-serif">Playfair Serif</span>
+              </button>
+              <button class="font-select-btn" data-font="sans">
+                <span class="font-preview-sans">Outfit Sans</span>
+              </button>
+              <button class="font-select-btn" data-font="space">
+                <span class="font-preview-space">Space Grotesk</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="settings-group text-alignment-group">
+            <label class="settings-label">Text Alignment</label>
+            <div class="align-selection-row">
+              <button class="align-btn" data-align="left" title="Align Left"><i class="fa-solid fa-align-left"></i></button>
+              <button class="align-btn active" data-align="center" title="Align Center"><i class="fa-solid fa-align-center"></i></button>
+              <button class="align-btn" data-align="right" title="Align Right"><i class="fa-solid fa-align-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="secondary-btn" id="canvas-cancel">Cancel</button>
+        <button class="primary-btn" id="canvas-download-btn">
+          <i class="fa-solid fa-download"></i> Download PNG Image
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREENSAVER / AMBIENT SLIDESHOW OVERLAY -->
+  <div class="screensaver-overlay" id="screensaver-overlay">
+    
+    <!-- Ambient Screensaver Backdrops -->
+    <div class="screensaver-bg">
+      <div class="ss-orb ss-orb-1" id="ss-orb-1"></div>
+      <div class="ss-orb ss-orb-2" id="ss-orb-2"></div>
+    </div>
+    
+    <!-- Absolute floating close button -->
+    <button class="ss-close-btn" id="screensaver-close" title="Exit Ambient Mode" aria-label="Exit ambient mode">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <!-- Top Bar Controls -->
+    <div class="screensaver-header">
+      <div class="ss-logo">
+        <i class="fa-solid fa-feather-pointed"></i> WisdomCanvas
+      </div>
+    </div>
+
+    <!-- Central Interactive Quote Content -->
+    <div class="screensaver-body">
+      <div class="ss-quote-mark"><i class="fa-solid fa-quote-left"></i></div>
+      
+      <p class="ss-quote-text" id="ss-quote-text">The only way to do great work is to love what you do.</p>
+      <p class="ss-quote-author" id="ss-quote-author">— Steve Jobs</p>
+      
+      <div class="ss-quote-mark" style="text-align: right;"><i class="fa-solid fa-quote-right"></i></div>
+    </div>
+
+    <!-- Countdown Progress bar -->
+    <div class="ss-progress-bar-container">
+      <div class="ss-progress-fill" id="ss-progress-fill"></div>
+    </div>
+
+    <!-- Bottom Controls Panel -->
+    <div class="screensaver-footer">
+      <div class="ss-controls">
+        <button class="ss-control-btn" id="ss-prev" title="Previous Quote"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="ss-control-btn play-pause-btn" id="ss-play-pause" title="Pause / Play Slideshow"><i class="fa-solid fa-pause"></i></button>
+        <button class="ss-control-btn" id="ss-next" title="Next Quote"><i class="fa-solid fa-forward-step"></i></button>
+      </div>
+
+      <div class="ss-settings">
+        <!-- Interval Selector -->
+        <div class="ss-slider-group">
+          <label for="ss-interval-slider">Interval: <span id="ss-interval-val">7s</span></label>
+          <input type="range" id="ss-interval-slider" min="3" max="20" value="7" step="1">
+        </div>
+        
+        <!-- Topic Selection in screensaver -->
+        <div class="ss-dropdown-group">
+          <label for="ss-topic-selector">Mood:</label>
+          <select id="ss-topic-selector" aria-label="Screensaver mood selection">
+            <option value="all">All Moods</option>
+            <option value="motivation">Motivation</option>
+            <option value="wisdom">Wisdom</option>
+            <option value="love">Love</option>
+            <option value="peace">Peace</option>
+            <option value="creativity">Creativity</option>
+            <option value="humor">Humor</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Quotes DB first, then Core UI Handler -->
+  <script src="quotes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
