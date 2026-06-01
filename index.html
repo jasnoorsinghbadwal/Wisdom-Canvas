@@ -94,38 +94,36 @@
       </div>
 
       <div class="card-outer-wrapper">
-        <!-- Interactive Glassmorphic Quote Card -->
-        <article class="quote-card" id="quote-display-card">
-          <div class="card-quote-mark left-mark"><i class="fa-solid fa-quote-left"></i></div>
+        <article class="quote-card" id="quote-card">
+          <!-- Centered Quotes Badge -->
+          <div class="card-header-icon">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
           
           <div class="quote-body-container">
             <p class="quote-text" id="quote-text">The only way to do great work is to love what you do.</p>
             <p class="quote-author" id="quote-author">Steve Jobs</p>
           </div>
-
-          <div class="card-quote-mark right-mark"><i class="fa-solid fa-quote-right"></i></div>
           
 
 
-          <!-- Bottom Card Actions -->
+          <!-- Symmetrical Bottom Card Toolbar Capsule -->
           <div class="card-footer">
-            <div class="card-quick-actions">
-              <button class="card-action-btn" id="fav-btn" title="Add to Favorites" aria-label="Favorite quote">
+            <div class="card-toolbar">
+              <button class="toolbar-btn" id="fav-btn" title="Add to Favorites" aria-label="Favorite quote">
                 <i class="fa-regular fa-heart"></i>
               </button>
-              <button class="card-action-btn" id="canvas-export-btn" title="Export as Beautiful Image" aria-label="Export quote card">
+              <button class="toolbar-btn" id="canvas-export-btn" title="Export as Beautiful Image" aria-label="Export quote card">
                 <i class="fa-solid fa-image"></i>
               </button>
-            </div>
-            
-            <div class="card-share-actions">
-              <button class="share-btn" id="copy-btn" title="Copy Text" aria-label="Copy quote">
+              <span class="toolbar-divider"></span>
+              <button class="toolbar-btn" id="copy-btn" title="Copy Text" aria-label="Copy quote">
                 <i class="fa-solid fa-copy"></i>
               </button>
-              <button class="share-btn" id="twitter-btn" title="Share on Twitter/X" aria-label="Share on X">
+              <button class="toolbar-btn" id="twitter-btn" title="Share on Twitter/X" aria-label="Share on X">
                 <i class="fa-brands fa-twitter"></i>
               </button>
-              <button class="share-btn" id="whatsapp-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+              <button class="toolbar-btn" id="whatsapp-btn" title="Share on WhatsApp" aria-label="Share on WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
               </button>
             </div>
@@ -133,14 +131,17 @@
         </article>
       </div>
 
-      <!-- Main Action Controller (Next Quote) -->
+      <!-- Symmetrical 3-Button Arena -->
       <div class="navigation-controls">
         <button class="nav-arrow-btn" id="prev-quote-btn" title="Previous Quote" aria-label="Previous quote">
-          <i class="fa-solid fa-arrow-left-long"></i>
+          <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <button class="next-quote-cta" id="next-quote-btn">
+        <button class="next-quote-cta" id="inspire-btn">
           <span>Inspire Me</span>
           <i class="fa-solid fa-shuffle shuffle-icon"></i>
+        </button>
+        <button class="nav-arrow-btn" id="next-quote-btn" title="Next Quote" aria-label="Next quote">
+          <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     </main>

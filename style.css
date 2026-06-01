@@ -334,6 +334,7 @@ body.light-theme .glow-orb {
   overflow-x: auto;
   padding: 0.25rem;
   scrollbar-width: none; /* Firefox */
+  justify-content: center;
 }
 
 .topic-scroll-container::-webkit-scrollbar {
@@ -452,29 +453,43 @@ body.light-theme .quote-card:hover {
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
 }
 
-.card-quote-mark {
+.card-header-icon {
   position: absolute;
-  color: var(--text-tertiary);
-  opacity: 0.15;
-  font-size: 7.5rem;
-  pointer-events: none;
-  font-family: Georgia, serif;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--topic-theme), #ec4899);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 8px 25px var(--topic-glow);
+  z-index: 10;
+  border: 4px solid var(--bg-primary);
+  transition: all var(--transition-normal);
 }
 
-.left-mark {
-  top: 1.5rem;
-  left: 2rem;
+body.light-theme .card-header-icon {
+  border-color: #f5f7fb;
 }
 
-.right-mark {
-  bottom: 5.5rem;
-  right: 2rem;
+.quote-card:hover .card-header-icon {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 12px 30px var(--topic-glow);
 }
 
 /* Quote typography container */
 .quote-body-container {
   z-index: 2;
   margin-bottom: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .quote-text {
@@ -487,6 +502,8 @@ body.light-theme .quote-card:hover {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: opacity var(--transition-normal);
   word-break: break-word;
+  text-align: center;
+  width: 100%;
 }
 
 .quote-text.text-long {
@@ -501,12 +518,14 @@ body.light-theme .quote-card:hover {
   color: var(--topic-theme);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   letter-spacing: 0.5px;
   transition: color var(--transition-normal);
 }
 
-.quote-author::before {
+.quote-author::before,
+.quote-author::after {
   content: '';
   display: inline-block;
   width: 25px;
@@ -550,55 +569,76 @@ body.light-theme .quote-card:hover {
   100% { height: 25px; }
 }
 
-/* Card bottom toolbar */
+/* Symmetrical Bottom Card Toolbar Capsule */
 .card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border-top: 1px solid var(--glass-border);
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   z-index: 2;
+  width: 100%;
 }
 
-.card-quick-actions, .card-share-actions {
+.card-toolbar {
   display: flex;
-  gap: 0.5rem;
-}
-
-.card-action-btn, .share-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-normal);
+}
+
+.card-toolbar:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+body.light-theme .card-toolbar {
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
+}
+
+.toolbar-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
   color: var(--text-secondary);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all var(--transition-normal);
 }
 
-.card-action-btn:hover, .share-btn:hover {
-  background: var(--bg-tertiary);
+.toolbar-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
-  border-color: var(--text-secondary);
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
-.card-action-btn.active {
-  color: #ef4444;
-  border-color: rgba(239, 68, 68, 0.4);
-  background: rgba(239, 68, 68, 0.1);
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+body.light-theme .toolbar-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.card-action-btn.tts-playing {
-  color: var(--success);
-  border-color: rgba(16, 185, 129, 0.4);
-  background: rgba(16, 185, 129, 0.1);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+.toolbar-btn.active {
+  color: #ef4444 !important;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--glass-border);
+  margin: 0 0.25rem;
 }
 
 /* ==========================================================================
@@ -635,6 +675,12 @@ body.light-theme .quote-card:hover {
   border-color: var(--topic-theme);
   color: var(--topic-theme);
   transform: scale(1.05);
+}
+
+.nav-arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .next-quote-cta {
@@ -1486,6 +1532,10 @@ body.light-theme .quote-card:hover {
     position: relative;
   }
   
+  .topic-scroll-container {
+    justify-content: flex-start;
+  }
+  
   .topic-navigation::after {
     content: '';
     position: absolute;
@@ -1527,52 +1577,52 @@ body.light-theme .quote-card:hover {
     font-size: 1rem;
   }
   
-  .left-mark {
-    font-size: 3rem;
-    top: 0.75rem;
-    left: 1rem;
-  }
-  
-  .right-mark {
-    font-size: 3rem;
-    bottom: 4.5rem;
-    right: 1rem;
-  }
-  
   .card-footer {
-    padding-top: 1.5rem;
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: stretch;
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   
-  .card-quick-actions, .card-share-actions {
-    justify-content: space-between;
+  .card-toolbar {
+    padding: 0.4rem 1rem;
     gap: 0.5rem;
+    border-radius: 50px;
+    width: auto;
   }
   
-  .card-quick-actions button, .card-share-actions button {
-    flex: 1;
-    height: 44px;
-    border-radius: 10px;
+  .toolbar-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  
+  .toolbar-divider {
+    height: 16px;
   }
   
   .navigation-controls {
-    flex-direction: column-reverse;
-    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
     margin-top: 2rem;
+    width: 100%;
   }
   
   .next-quote-cta {
-    max-width: 100%;
-    width: 100%;
+    flex: 1;
     height: 52px;
+    font-size: 0.95rem;
   }
   
   .nav-arrow-btn {
-    width: 100%;
-    border-radius: 50px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
   
   .bookmarks-drawer {

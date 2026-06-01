@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     topicPills: document.querySelectorAll('.topic-pill'),
     prevBtn: document.getElementById('prev-quote-btn'),
     nextBtn: document.getElementById('next-quote-btn'),
+    inspireBtn: document.getElementById('inspire-btn'),
     
     // Card Quick Actions
     favBtn: document.getElementById('fav-btn'),
@@ -717,6 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Core Controls
     el.nextBtn.addEventListener('click', displayNextQuote);
     el.prevBtn.addEventListener('click', displayPrevQuote);
+    el.inspireBtn.addEventListener('click', displayRandomQuote);
 
     // Keyboard support: arrows & Space
     document.addEventListener('keydown', (e) => {
