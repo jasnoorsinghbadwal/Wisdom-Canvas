@@ -382,12 +382,12 @@ body.light-theme .glow-orb {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 }
 
 .topic-meta-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .topic-meta-header h2 {
@@ -649,7 +649,7 @@ body.light-theme .toolbar-btn:hover {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: 100%;
   max-width: 720px;
 }
@@ -1502,13 +1502,22 @@ body.light-theme .toolbar-btn:hover {
 }
 
 @media (max-width: 768px) {
+  .app-container {
+    padding: 0 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
   .app-header {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    row-gap: 1.25rem;
+    row-gap: 0.75rem;
     column-gap: 0.5rem;
-    padding: 1.25rem 0;
+    padding: 0.75rem 0;
   }
   
   .brand-logo {
@@ -1530,6 +1539,7 @@ body.light-theme .toolbar-btn:hover {
   
   .topic-navigation {
     position: relative;
+    padding: 0.5rem 0;
   }
   
   .topic-scroll-container {
@@ -1553,28 +1563,41 @@ body.light-theme .toolbar-btn:hover {
     background: linear-gradient(90deg, rgba(255,255,255,0), #f5f7fb);
   }
   
+  .main-content {
+    padding: 0.5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .topic-meta-header {
+    margin-bottom: 0.5rem;
+  }
+
   .topic-meta-header h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   
   .quote-card {
-    padding: 2.75rem 1.5rem 2.25rem;
-    min-height: 310px;
+    padding: 2.25rem 1.5rem 1.5rem;
+    min-height: 220px;
     border-radius: 22px;
   }
   
   .quote-text {
-    font-size: 1.45rem;
-    line-height: 1.45;
-    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
   }
   
   .quote-text.text-long {
-    font-size: 1.25rem;
+    font-size: 1.12rem;
   }
   
   .quote-author {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
   
   .card-footer {
@@ -1608,19 +1631,19 @@ body.light-theme .toolbar-btn:hover {
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-top: 2rem;
+    margin-top: 1.25rem;
     width: 100%;
   }
   
   .next-quote-cta {
     flex: 1;
-    height: 52px;
-    font-size: 0.95rem;
+    height: 48px;
+    font-size: 0.9rem;
   }
   
   .nav-arrow-btn {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     flex-shrink: 0;
   }

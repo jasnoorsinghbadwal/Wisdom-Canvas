@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
   const el = {
     body: document.body,
-    quoteCard: document.getElementById('quote-display-card'),
+    quoteCard: document.getElementById('quote-card'),
     quoteText: document.getElementById('quote-text'),
     quoteAuthor: document.getElementById('quote-author'),
     currentTopicLabel: document.getElementById('current-topic-label'),
