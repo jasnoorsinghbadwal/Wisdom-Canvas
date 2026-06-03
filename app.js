@@ -442,6 +442,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeCanvasModal() {
     el.canvasModal.classList.remove('active');
+    // Reset to settings step on mobile
+    document.querySelector('.modal-card').classList.remove('preview-step');
   }
 
   function renderExportCanvas() {
@@ -760,6 +762,20 @@ document.addEventListener('DOMContentLoaded', () => {
     el.canvasClose.addEventListener('click', closeCanvasModal);
     el.canvasCancel.addEventListener('click', closeCanvasModal);
     el.canvasDownloadBtn.addEventListener('click', downloadCanvas);
+
+    // Mobile two-step flow: Preview & Back
+    const previewBtn = document.getElementById('canvas-preview-btn');
+    const backBtn = document.getElementById('canvas-back-btn');
+    const modalCard = document.querySelector('.modal-card');
+
+    previewBtn.addEventListener('click', () => {
+      modalCard.classList.add('preview-step');
+      renderExportCanvas();
+    });
+
+    backBtn.addEventListener('click', () => {
+      modalCard.classList.remove('preview-step');
+    });
 
     el.palettePills.forEach(pill => {
       pill.addEventListener('click', () => {

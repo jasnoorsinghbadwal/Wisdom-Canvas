@@ -1126,6 +1126,13 @@ body.light-theme .toolbar-btn:hover {
   gap: 0.75rem;
   padding: 1.5rem 2rem;
   border-top: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+/* These buttons only appear on mobile */
+.mobile-preview-btn,
+.mobile-back-btn {
+  display: none !important;
 }
 
 .primary-btn {
@@ -1495,6 +1502,46 @@ body.light-theme .toolbar-btn:hover {
   
   .canvas-preview-container {
     display: none;
+  }
+  
+  /* Two-step mobile modal flow */
+  .mobile-preview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .mobile-back-btn {
+    display: none;
+  }
+  
+  #canvas-download-btn {
+    display: none;
+  }
+  
+  /* Step 2: Preview mode active */
+  .modal-card.preview-step .canvas-preview-container {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .modal-card.preview-step .canvas-settings {
+    display: none;
+  }
+  
+  .modal-card.preview-step .mobile-preview-btn {
+    display: none;
+  }
+  
+  .modal-card.preview-step .mobile-back-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .modal-card.preview-step #canvas-download-btn {
+    display: inline-flex;
   }
   
   .quote-card {
