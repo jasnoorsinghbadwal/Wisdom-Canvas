@@ -1484,12 +1484,17 @@ body.light-theme .toolbar-btn:hover {
   
   .modal-body {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1.25rem;
+    align-items: start;
   }
   
   .canvas-preview-container {
-    max-width: 400px;
+    max-width: 280px;
+    max-height: 200px;
+    aspect-ratio: unset;
     margin: 0 auto;
+    overflow: hidden;
   }
   
   .quote-card {
