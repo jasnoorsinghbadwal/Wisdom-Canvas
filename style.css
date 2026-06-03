@@ -65,7 +65,7 @@ body.light-theme {
 * {
   margin: 0;
   padding: 0;
-  box-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -325,7 +325,7 @@ body.light-theme .glow-orb {
    ========================================================================== */
 .topic-navigation {
   padding: 1.5rem 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .topic-scroll-container {
@@ -426,8 +426,8 @@ body.light-theme .glow-orb {
   width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  justify-content: space-between;
+  min-height: unset;
+  justify-content: flex-start;
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
   overflow: hidden;
 }
@@ -577,6 +577,7 @@ body.light-theme .card-header-icon {
   padding-top: 1.5rem;
   z-index: 2;
   width: 100%;
+  margin-top: auto;
 }
 
 .card-toolbar {
@@ -1480,8 +1481,8 @@ body.light-theme .toolbar-btn:hover {
   }
   
   .quote-card {
-    padding: 3rem 2.5rem 2.5rem;
-    min-height: 350px;
+    padding: 3rem 2.5rem 2rem;
+    min-height: unset;
   }
   
   .quote-text {
@@ -1489,11 +1490,7 @@ body.light-theme .toolbar-btn:hover {
   }
   
   .quote-text.text-long {
-    font-size: 1.45rem;
-  }
-  
-  .card-quote-mark {
-    font-size: 5rem;
+    font-size: 1.4rem;
   }
   
   .ss-quote-text {
@@ -1504,11 +1501,10 @@ body.light-theme .toolbar-btn:hover {
 @media (max-width: 768px) {
   .app-container {
     padding: 0 1rem;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
   }
 
   .app-header {
@@ -1518,6 +1514,7 @@ body.light-theme .toolbar-btn:hover {
     row-gap: 0.75rem;
     column-gap: 0.5rem;
     padding: 0.75rem 0;
+    flex-shrink: 0;
   }
   
   .brand-logo {
@@ -1540,6 +1537,8 @@ body.light-theme .toolbar-btn:hover {
   .topic-navigation {
     position: relative;
     padding: 0.5rem 0;
+    flex-shrink: 0;
+    overflow: visible;
   }
   
   .topic-scroll-container {
@@ -1564,88 +1563,116 @@ body.light-theme .toolbar-btn:hover {
   }
   
   .main-content {
-    padding: 0.5rem 0;
+    padding: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
   }
 
   .topic-meta-header {
     margin-bottom: 0.5rem;
+    flex-shrink: 0;
   }
 
   .topic-meta-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .topic-meta-header span {
+    font-size: 0.78rem;
   }
   
   .quote-card {
-    padding: 2.25rem 1.5rem 1.5rem;
-    min-height: 220px;
-    border-radius: 22px;
+    padding: 2rem 1.25rem 1.25rem;
+    min-height: unset;
+    border-radius: 20px;
+    justify-content: flex-start;
+  }
+
+  .quote-body-container {
+    margin-bottom: 0;
   }
   
   .quote-text {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
   }
   
   .quote-text.text-long {
-    font-size: 1.12rem;
+    font-size: 1.05rem;
   }
   
   .quote-author {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .card-header-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    border-width: 3px;
   }
   
   .card-footer {
-    padding-top: 1.25rem;
+    padding-top: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top: auto;
   }
   
   .card-toolbar {
-    padding: 0.4rem 1rem;
-    gap: 0.5rem;
+    padding: 0.3rem 0.85rem;
+    gap: 0.4rem;
     border-radius: 50px;
     width: auto;
   }
   
   .toolbar-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 0.85rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.78rem;
   }
   
   .toolbar-divider {
-    height: 16px;
+    height: 14px;
   }
   
   .navigation-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 0.75rem;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     width: 100%;
+    flex-shrink: 0;
+    padding-bottom: 0.5rem;
   }
   
   .next-quote-cta {
     flex: 1;
-    height: 48px;
-    font-size: 0.9rem;
+    max-width: 260px;
+    height: 44px;
+    font-size: 0.85rem;
   }
   
   .nav-arrow-btn {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     flex-shrink: 0;
+  }
+
+  /* Hide footer on mobile to save space */
+  .app-footer-info {
+    display: none;
   }
   
   .bookmarks-drawer {
@@ -1747,6 +1774,9 @@ body.light-theme .wc-toast {
   border-top: 1px solid var(--glass-border);
   width: 100%;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-footer-info p {
@@ -1785,9 +1815,9 @@ body.light-theme .wc-toast {
   }
   
   .quote-card {
-    padding: 2.25rem 1.15rem 1.75rem;
-    min-height: 280px;
-    border-radius: 18px;
+    padding: 1.75rem 1rem 1rem;
+    min-height: unset;
+    border-radius: 16px;
   }
   
   .quote-text {
