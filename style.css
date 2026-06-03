@@ -1852,5 +1852,32 @@ body.light-theme .wc-toast {
     width: 48px;
     height: 48px;
   }
+  
+  .palette-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .font-selection-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .font-select-btn {
+    flex: 1 1 calc(33.333% - 0.5rem);
+    min-width: 90px;
+    padding: 0.75rem 0.25rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Enforce completely flat UI in Light Mode */
+body.light-theme * {
+  box-shadow: none !important;
+}
+
+/* Smooth Light/Dark Mode Toggle */
+body, .app-container, .quote-card, .modal-card, .bookmarks-drawer, .icon-btn, .toolbar-btn, .palette-pill {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
