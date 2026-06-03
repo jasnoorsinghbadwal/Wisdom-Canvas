@@ -1132,7 +1132,7 @@ body.light-theme .toolbar-btn:hover {
 /* These buttons only appear on mobile */
 .mobile-preview-btn,
 .mobile-back-btn {
-  display: none !important;
+  display: none;
 }
 
 .primary-btn {
@@ -1535,7 +1535,7 @@ body.light-theme .toolbar-btn:hover {
   }
   
   .modal-card.preview-step .mobile-back-btn {
-    display: inline-flex !important;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
