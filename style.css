@@ -1858,23 +1858,16 @@ body.light-theme .wc-toast {
   }
   
   .font-selection-row {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
     padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  
-  .font-selection-row::-webkit-scrollbar {
-    display: none;
   }
   
   .font-select-btn {
-    flex: 0 0 110px;
-    padding: 0.75rem 0.5rem;
-    font-size: 0.8rem;
+    padding: 0.6rem 0.2rem;
+    font-size: 0.72rem;
+    min-width: 0;
   }
 }
 
