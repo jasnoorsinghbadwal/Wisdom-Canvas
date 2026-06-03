@@ -960,6 +960,8 @@ body.light-theme .toolbar-btn:hover {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--glass-border);
   flex-shrink: 0;
+  background: var(--bg-primary);
+  z-index: 10;
 }
 
 .modal-header h3 {
@@ -977,6 +979,8 @@ body.light-theme .toolbar-btn:hover {
   gap: 2rem;
   align-items: center;
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .canvas-preview-container {
