@@ -55,8 +55,8 @@ body.light-theme {
   
   --glass-bg: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(255, 255, 255, 0.5);
-  --card-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-  --glow-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+  --card-shadow: none;
+  --glow-shadow: none;
 }
 
 /* ==========================================================================
@@ -284,6 +284,7 @@ body.light-theme .glow-orb {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   color: var(--text-primary);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1440,6 +1441,10 @@ body.light-theme .toolbar-btn:hover {
   font-size: 0.85rem;
   outline: none;
   cursor: pointer;
+  max-width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   transition: all var(--transition-normal);
 }
 
