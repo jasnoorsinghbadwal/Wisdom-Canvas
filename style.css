@@ -1858,16 +1858,19 @@ body.light-theme .wc-toast {
   }
   
   .font-selection-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
     padding-bottom: 0.5rem;
   }
   
   .font-select-btn {
-    padding: 0.6rem 0.2rem;
-    font-size: 0.72rem;
-    min-width: 0;
+    flex: 0 1 auto;
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+    white-space: nowrap;
   }
 }
 
