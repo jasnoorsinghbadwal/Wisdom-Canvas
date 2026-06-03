@@ -1500,6 +1500,11 @@ body.light-theme .toolbar-btn:hover {
     align-items: start;
   }
   
+  .modal-footer {
+    padding: 1rem 1.25rem;
+    justify-content: space-between;
+  }
+  
   .canvas-preview-container {
     display: none;
   }
@@ -1542,6 +1547,10 @@ body.light-theme .toolbar-btn:hover {
   
   .modal-card.preview-step #canvas-download-btn {
     display: inline-flex;
+  }
+  
+  .modal-card.preview-step #canvas-cancel {
+    display: none;
   }
   
   .quote-card {
