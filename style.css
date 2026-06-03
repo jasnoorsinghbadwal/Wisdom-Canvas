@@ -1859,14 +1859,21 @@ body.light-theme .wc-toast {
   
   .font-selection-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .font-selection-row::-webkit-scrollbar {
+    display: none;
   }
   
   .font-select-btn {
-    flex: 1 1 calc(33.333% - 0.5rem);
-    min-width: 90px;
-    padding: 0.75rem 0.25rem;
+    flex: 0 0 110px;
+    padding: 0.75rem 0.5rem;
     font-size: 0.8rem;
   }
 }
